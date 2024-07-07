@@ -148,7 +148,7 @@ footer {
 }
 
 /* ボタンが黒くなる時のための対策 */
-.btn:hover {
+.btn-light:hover {
     background-color: #f8f9fa;
 }
 
