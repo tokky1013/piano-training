@@ -147,7 +147,7 @@ footer {
     align-items: center;
 }
 
-/* ボタンが黒くなる時のための対策 */
+/* ボタンが暗くならないための対策 */
 .btn-light:hover {
     background-color: #f8f9fa;
 }
