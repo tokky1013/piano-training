@@ -1,0 +1,234 @@
+:root {
+    --main-color: #f0f0f2;
+    --sub-color: #282828;
+    --max-content-width: 500px;
+    --max-menu-width: 400px;
+    --body-height: min(max(600px, 100dvh), 850px);
+    --header-height: 80px;
+    --footer-height: 250px;
+    --score-bar-height: 40px;
+}
+
+html {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+body {
+    margin: 0;
+    background-color: var(--main-color);
+    height: var(--body-height);
+    font-size: 1.8rem;
+    display: flex;
+}
+
+#content {
+    width: min(100svw, var(--max-content-width));
+}
+
+header {
+    height: var(--header-height);
+    background-color: var(--sub-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+main {
+    height: calc(var(--body-height) - var(--header-height) - var(--footer-height));
+}
+
+footer {
+    height: var(--footer-height);
+    background-color: var(--sub-color);
+}
+
+/* --------------------------------ページ関連-------------------------------- */
+.score-bar {
+    height: var(--score-bar-height);
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - var(--score-bar-height));
+}
+/* --------------------------------ページ0-------------------------------- */
+.item-name {
+    width: 150px;
+    margin: 0;
+    font-size: larger;
+}
+
+.setting-input {
+    width: 150px;
+    height: 40px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+/* --------------------------------ページ2-------------------------------- */
+#play {
+    font-size: 1rem;
+}
+
+#answer {
+    margin: auto;
+    text-align: center;
+    font-size: 2.5rem;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+#message2 {
+    font-weight: bold;
+}
+/* --------------------------------ページ3-------------------------------- */
+#result {
+    font-size: 2.5rem;
+    /* margin-top: 20px; */
+}
+#result-container {
+    margin: auto;
+    padding: 0 10px 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 57% 5% 28% 10%;
+}
+
+#result-container > p {
+    margin-bottom: 10px;
+}
+
+/* --------------------------------下のボタン-------------------------------- */
+.vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.vertical-btn {
+    width: 75%;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.grid-btn {
+    margin: 7px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* スマホでしか表示されない要素 */
+.only-smartphone {
+    display: none;
+}
+
+/* --------------------------------メニュー関連-------------------------------- */
+.open-menu,
+.close-menu {
+    display: none;
+}
+
+#menu {
+    position: absolute;
+    left: -100vw;
+}
+
+aside {
+    width: min(100vw, var(--max-menu-width));
+    background-color: var(--sub-color);
+    color: white;
+    border-right: gray solid 1px;
+}
+
+.heading-menu {
+    font-size: 2.6rem;
+}
+
+li {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* メニュー関連のフォント */
+@font-face {
+    font-family: LigatureSymbols;
+    src: url("../font/LigatureSymbols-2.11.ttf") format("truetype");
+}
+.icon {
+    font-family: LigatureSymbols;
+    font-size: 1.8em;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+.icon.close-menu {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.8);
+}
+/* メニューを開くボタン */
+.icon.open-menu::before {
+    content: "\E08e";
+}
+/* メニューを閉じるボタン */
+.icon.close-menu::before {
+    content: "\E10f";
+}
+
+/* --max-content-width + --max-menu-width 以下でスタイルを変更 */
+@media screen and (max-width: calc(400px + 500px)) {
+    .open-menu,
+    .close-menu {
+        display: block;
+    }
+
+    aside {
+        position: absolute;
+        top: 0;
+        left: calc(-1 * min(100vw, var(--max-menu-width)));
+        height: 100svh;
+        transition: all 0.2s;
+    }
+
+    #menu:checked ~ aside {
+        left: 0;
+    }
+
+    #menu:checked ~ .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* スマホでしか表示されない要素 */
+    .only-smartphone {
+        display: block;
+    }
+}
+
+@media screen and (max-width: calc(400px)) {
+    aside {
+        border: 0;
+    }
+}

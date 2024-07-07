@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/abcjs-audio.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>ピアノトレーニング</title>
+</head>
+<body>
+    <input id="menu" type="checkbox" checked>
+    <label for="menu" class="back"></label>
+
+    <aside>
+        <div class="d-flex justify-content-between align-items-center pt-4 pb-3 ps-5 pe-4">
+            <div class="heading-menu">Menu</div>
+            <label for="menu" class="close-menu icon"></label>
+        </div>
+        <nav>
+            <ul>
+                <li><label onclick="closeMenu();prepareGame(0)">・<span class="text-decoration-underline">音感トレーニング</span></label></li>
+                <li class="mb-5"><label onclick="closeMenu();prepareGame(1)">・<span class="text-decoration-underline">読譜トレーニング</span></label></li>
+                <hr>
+                <li><a class="text-white" href="https://docs.google.com/forms/d/e/1FAIpQLSfe3lbMde68i8BpX4JopTRJXaBFRl4qe5fTMzLooSdB4t3xpg/viewform?usp=sf_link" target="_blank">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="content">
+        <header>
+            <h2 id="title">音感トレーニング</h2>
+            <label for="menu" class="open-menu icon"></label>
+        </header>
+        <main>
+            <div class="d-flex w-100 px-3 fs-5 score-bar">
+                <p>連続正解数 :</p><p id="continuous-correct-answer-num"></p>
+                <p id="question-num" class="ms-auto"></p><p id="total-question-num">/10</p>
+            </div>
+            <div id="page0" class="page">
+                <div class="my-auto w-100 ps-4">
+                    <div class="d-flex align-items-center w-100 mb-5">
+                        <p class="item-name">レベル</p> :
+                        <select name="level" id="level" class="mx-auto setting-input">
+                        </select>
+                    </div>
+
+                    <div class="d-flex align-items-center w-100">
+                        <p id="item-name" class="item-name"></p> :
+                        <select name="mode" id="mode" class="mx-auto setting-input">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="page1" class="page">
+                <div id="message1"></div>
+                <div id="score1"></div>
+                <button id="replay" class="btn btn-secondary btn-lg mt-4" onclick="play();">もう一度聞く</button>
+            </div>
+            <div id="page2" class="page">
+                <div id="message2"></div>
+                <div id="score2"></div>
+                <button id="play"></button>
+                <div id="answer"></div>
+            </div>
+            <div id="page3" class="page">
+                <div id="result">結果</div>
+                <div id="result-container">
+                </div>
+            </div>
+        </main>
+        <footer class="d-flex justify-content-center align-items-center">
+            <div id="btn-container" class="w-100 h-100 p-3"></div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/abcjs-basic-min.js"></script>
+    <script type="text/javascript" src="./js/chord.js"></script>
+    <script type="text/javascript" src="./js/funcs.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <!-- <script type="text/javascript" src="./js/test.js"></script> -->
+</body>
+</html>
