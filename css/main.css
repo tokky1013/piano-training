@@ -138,6 +138,14 @@ footer {
     display: none;
 }
 
+.small-btn {
+    height: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* --------------------------------メニュー関連-------------------------------- */
 .open-menu,
 .close-menu {

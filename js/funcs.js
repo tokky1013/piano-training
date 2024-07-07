@@ -172,7 +172,7 @@ function generateQuestion(level, mode) {
         const choice = choices[i];
         let name = getChoiceName(choice);
         let onclick;
-        let classes = 'btn-light btn-lg';
+        let classes = 'btn-light';
 
         // onclick
         if(i === answerNum) onclick = 'displayAnswer()';
@@ -211,7 +211,7 @@ function displayAnswer(correct=true) {
     }
     $('#continuous-correct-answer-num').text(continuousCorrectAnswerNum);
 
-    setBtn([{'name': btnMessage, 'onclick': 'goNextQuestion();', 'classes': 'btn-light btn-lg'}]);
+    setBtn([{'name': btnMessage, 'onclick': 'goNextQuestion();', 'classes': 'btn-light'}]);
 
     setAudio(ansPrev.toAbc(), clefPrev, false, false, 'score2', 'play');     // 答えをセット
 
@@ -245,10 +245,10 @@ function displayResult() {
     $('#result-container').html(html);
 
     // ボタン
-    let btns = $("#level").val() - 0 === maxLevel[modeNum] ? [] : [{'name': '次のレベルへ', 'onclick': 'goNextLevel()', 'classes': 'btn-light btn-lg'}];
+    let btns = $("#level").val() - 0 === maxLevel[modeNum] ? [] : [{'name': '次のレベルへ', 'onclick': 'goNextLevel()', 'classes': 'btn-light'}];
     btns = btns.concat([
-        {'name': 'もう一度挑戦する', 'onclick': 'prepareGame(modeNum);', 'classes': 'btn-light btn-lg'},
-        {'name': '一覧へ', 'onclick': 'openMenu();', 'classes': 'text-white only-smartphone'},
+        {'name': 'もう一度挑戦する', 'onclick': 'prepareGame(modeNum);', 'classes': 'btn-light'},
+        {'name': '一覧へ', 'onclick': 'openMenu();', 'classes': 'text-white only-smartphone small-btn'},
     ]);
     setBtn(btns);
 
@@ -324,7 +324,7 @@ function displayPage(num) {
     for (let i = 0; i < 4; i++) {
         $(`#page${i}`).css('display', i === num ? 'flex' : 'none');
     }
-    // if
+    $(":root").get(0).style.setProperty('--footer-height', num === 1 ? '250px' : '200px');
 }
 
 function prepareGame(mode) {
@@ -381,7 +381,7 @@ function prepareGame(mode) {
     if(modePrev[modeNum]) $('#mode').val(modePrev[modeNum]);
 
     // ボタンを準備
-    setBtn([{name: 'スタート', onclick: 'goNextQuestion();', classes: 'btn-light btn-lg'}]);
+    setBtn([{name: 'スタート', onclick: 'goNextQuestion();', classes: 'btn-light'}]);
 }
 
 function goNextQuestion() {
@@ -412,14 +412,14 @@ function goNextQuestion() {
 
 
 // setBtn([
-//     {name: 'Gm<br><span class="fs-6">(ソシ♭レ)</span>', onclick: 'next();', classes: 'btn-light btn-lg'},
-//     {name: 'C<br><span class="fs-6">(ドミソ)</span>', onclick: 'next();', classes: 'btn-light btn-lg'},
-//     {name: 'B7<br><span class="fs-6">(シレ♯ファ♯ラ)</span>', onclick: 'next();', classes: 'btn-light btn-lg'},
-//     {name: 'F♯7 (G♭7)<br><span class="fs-6">(ファ♯ラ♯ド♯ミ)</span>', onclick: 'next();', classes: 'btn-light btn-lg'},
+//     {name: 'Gm<br><span class="fs-6">(ソシ♭レ)</span>', onclick: 'next();', classes: 'btn-light'},
+//     {name: 'C<br><span class="fs-6">(ドミソ)</span>', onclick: 'next();', classes: 'btn-light'},
+//     {name: 'B7<br><span class="fs-6">(シレ♯ファ♯ラ)</span>', onclick: 'next();', classes: 'btn-light'},
+//     {name: 'F♯7 (G♭7)<br><span class="fs-6">(ファ♯ラ♯ド♯ミ)</span>', onclick: 'next();', classes: 'btn-light'},
 // ], grid=true);
 
 // setBtn([
-//     {name: '次のレベルへ', onclick: 'next();', classes: 'btn-light btn-lg'},
-//     {name: 'もう一度挑戦する', onclick: 'next();', classes: 'btn-light btn-lg'},
+//     {name: '次のレベルへ', onclick: 'next();', classes: 'btn-light'},
+//     {name: 'もう一度挑戦する', onclick: 'next();', classes: 'btn-light'},
 //     {name: '一覧に戻る', onclick: 'openMenu();', classes: 'text-white'},
 // ]);
