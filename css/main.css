@@ -5,7 +5,7 @@
     --max-menu-width: 400px;
     --body-height: min(max(600px, 100dvh), 850px);
     --header-height: 80px;
-    --footer-height: 250px;
+    --footer-height: 200px;
     --score-bar-height: 40px;
 }
 

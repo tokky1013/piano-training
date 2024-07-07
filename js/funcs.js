@@ -321,9 +321,10 @@ function setBtn(btns, grid=false) {
 
 // numページ目を表示する
 function displayPage(num) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
         $(`#page${i}`).css('display', i === num ? 'flex' : 'none');
     }
+    // if
 }
 
 function prepareGame(mode) {
