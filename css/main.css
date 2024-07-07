@@ -3,7 +3,7 @@
     --sub-color: #282828;
     --max-content-width: 500px;
     --max-menu-width: 400px;
-    --body-height: min(max(600px, 100dvh), 850px);
+    --body-height: min(100dvh, 850px);
     --header-height: 80px;
     --footer-height: 200px;
     --score-bar-height: 40px;
@@ -105,6 +105,7 @@ footer {
 
 #result-container > p {
     margin-bottom: 10px;
+    font-size: 1.4rem;
 }
 
 /* --------------------------------下のボタン-------------------------------- */
