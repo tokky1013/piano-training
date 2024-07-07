@@ -183,7 +183,6 @@ function generateQuestion(level, mode) {
     }
 
     setBtn(btns, grid=true);
-    $('body').first().trigger('click');     // ボタンが黒くなる時のための対策
 
     $('#answer').html(getAnswer(answer));
     ansPrev = answer;

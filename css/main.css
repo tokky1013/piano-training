@@ -147,6 +147,11 @@ footer {
     align-items: center;
 }
 
+/* ボタンが黒くなる時のための対策 */
+.btn:hover {
+    background-color: #f8f9fa;
+}
+
 /* --------------------------------メニュー関連-------------------------------- */
 .open-menu,
 .close-menu {
